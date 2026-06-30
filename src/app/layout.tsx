@@ -33,9 +33,11 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <SmoothScrolling>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <div className="overflow-x-clip flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
           <WhatsAppButton />
         </SmoothScrolling>
       </body>

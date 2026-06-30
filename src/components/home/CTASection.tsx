@@ -13,7 +13,7 @@ export default function CTASection() {
         {/* Full-bleed background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ChatGPT Image Jun 29, 2026, 09_01_40 AM.png"
+            src="/images/cta-bg.png"
             alt="Electric vehicle scenery background"
             fill
             className="object-cover object-center"

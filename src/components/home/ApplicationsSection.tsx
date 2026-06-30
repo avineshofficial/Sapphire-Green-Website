@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 
 const applications = [
   {
-    image: "/images/waste-management.png",
+    image: "/images/wastemanagement.png",
     title: "Waste Management",
   },
   {
-    image: "/images/construction.png",
+    image: "/images/construction-img.png",
     title: "Construction",
   },
   {
-    image: "/images/municipal-services.png",
+    image: "/images/municipalservices.png",
     title: "Municipal Services",
   },
   {
-    image: "/images/industrial.png",
+    image: "/images/industry.png",
     title: "Industries",
   },
 ];

@@ -79,7 +79,7 @@ export default function AboutPage() {
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               Building a{" "}
-              <span className="text-brand-green italic">Sustainable</span>
+              <span className="text-brand-green">Sustainable</span>
               <br />
               Future on Wheels
             </h1>
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 From Vision to{" "}
-                <span className="text-brand-green italic">Revolution</span>
+                <span className="text-brand-green">Revolution</span>
               </h2>
               <div className="space-y-4 text-text-muted text-sm leading-relaxed">
                 <p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
               className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/images/heroimage.png"
+                src="/images/image1.png"
                 alt="Sapphire Green Energy EV Loader"
                 fill
                 className="object-cover"
@@ -196,7 +196,7 @@ export default function AboutPage() {
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 The Sapphire{" "}
-                <span className="text-brand-green italic">Advantage</span>
+                <span className="text-brand-green">Advantage</span>
               </h2>
               <div className="space-y-4">
                 {whyChoose.map((item, i) => (
@@ -252,7 +252,7 @@ export default function AboutPage() {
             className="section-heading text-3xl sm:text-4xl mb-12"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            What Drives <span className="text-brand-green italic">Us</span>
+            What Drives <span className="text-brand-green">Us</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[

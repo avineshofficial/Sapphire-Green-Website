@@ -9,8 +9,8 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Features", href: "/#features" },
-  { name: "Benefits", href: "/#benefits" },
+  { name: "Features", href: "/features" },
+  { name: "Benefits", href: "/benefits" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -38,16 +38,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <Leaf className="w-8 h-8 text-[#4CAF50] stroke-[1.5]" />
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <Leaf className="w-6 h-6 sm:w-8 sm:h-8 text-[#4CAF50] stroke-[1.5]" />
             <div className="flex flex-col">
               <span
-                className="text-[#111111] font-bold text-base leading-tight tracking-tight"
+                className="text-[#111111] font-bold text-[13px] sm:text-base leading-tight tracking-tight"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 SAPPHIRE GREEN ENERGY
               </span>
-              <span className="text-[#555555] text-[10px] leading-tight">
+              <span className="hidden sm:block text-[#555555] text-[10px] leading-tight mt-0.5">
                 EV Loaders & Customized Electric
                 <br />
                 Vehicles Manufacturer.
