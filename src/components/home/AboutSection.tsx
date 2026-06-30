@@ -121,7 +121,7 @@ export default function AboutSection() {
             className="lg:col-span-5"
             id="features"
           >
-            <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-full relative overflow-hidden">
+            <div className="bg-[#E8F5E9] rounded-3xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-full relative overflow-hidden">
               <span className="text-[10px] sm:text-xs font-bold text-[#4CAF50] tracking-[0.15em] uppercase mb-3 block">KEY FEATURES</span>
               <h3
                 className="text-2xl sm:text-[1.75rem] font-bold text-[#111111] leading-tight mb-6"
