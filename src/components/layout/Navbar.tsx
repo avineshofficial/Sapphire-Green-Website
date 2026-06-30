@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Leaf } from "lucide-react";
+import { ArrowRight, Menu, X, Leaf } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -18,11 +18,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !scrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,24 +33,23 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-white"
+        isTransparent
+          ? "bg-transparent"
+          : "bg-white/90 backdrop-blur-md shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-16 lg:h-[72px]">
           <Link href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            <Leaf className="w-6 h-6 sm:w-8 sm:h-8 text-[#4CAF50] stroke-[1.5]" />
+            <Leaf className="w-6 h-6 sm:w-7 sm:h-7 text-[#238a2c] stroke-[1.5]" />
             <div className="flex flex-col">
               <span
-                className="text-[#111111] font-bold text-[13px] sm:text-base leading-tight tracking-tight"
+                className="text-[#111111] font-bold text-[13px] sm:text-[15px] leading-tight tracking-tight"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 SAPPHIRE GREEN ENERGY
               </span>
-              <span className="hidden sm:block text-[#555555] text-[10px] leading-tight mt-0.5">
+              <span className="hidden md:block text-[#555555] text-[9px] leading-tight mt-0.5">
                 EV Loaders & Customized Electric
                 <br />
                 Vehicles Manufacturer.
@@ -55,10 +57,12 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
+
               return (
                 <Link
                   key={link.name}
@@ -78,29 +82,16 @@ export default function Navbar() {
             })}
             <Link
               href="/contact"
-              className="bg-[#0b1c14] hover:bg-black text-white px-5 py-2.5 rounded text-sm font-semibold flex items-center gap-2 transition-all"
+              className="bg-[#0b1c14] hover:bg-black text-white px-4 py-2.5 rounded text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
             >
               Request a Demo
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/70 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -112,13 +103,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 pb-6 pt-2 bg-white border-t border-gray-100">
+        <div className="px-4 pb-6 pt-2 bg-white border-t border-gray-100 shadow-sm">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -134,7 +124,8 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="btn-primary mt-4 w-full justify-center text-sm"
           >
-            Request a Demo →
+            Request a Demo
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
