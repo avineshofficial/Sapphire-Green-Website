@@ -1,10 +1,10 @@
 "use client";
 
 import { ReactLenis } from "lenis/react";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, Suspense, useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function SmoothScrolling({ children }: { children: ReactNode }) {
+function SmoothScrollingInner({ children }: { children: ReactNode }) {
   const lenisRef = useRef<any>(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -24,5 +24,13 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
     <ReactLenis root options={{ lerp: 0.1, smoothWheel: true, syncTouch: true }} ref={lenisRef}>
       {children}
     </ReactLenis>
+  );
+}
+
+export default function SmoothScrolling({ children }: { children: ReactNode }) {
+  return (
+    <Suspense fallback={<>{children}</>}>
+      <SmoothScrollingInner>{children}</SmoothScrollingInner>
+    </Suspense>
   );
 }
