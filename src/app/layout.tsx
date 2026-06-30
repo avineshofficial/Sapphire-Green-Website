@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Sapphire Green Energy | EV Loaders & Electric Vehicles Manufacturer",
@@ -40,6 +41,7 @@ export default function RootLayout({
           </div>
           <WhatsAppButton />
         </SmoothScrolling>
+        <Analytics />
       </body>
     </html>
   );
